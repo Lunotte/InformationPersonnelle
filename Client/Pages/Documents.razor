@@ -1,0 +1,26 @@
+﻿@page "/"
+@using InformationPersonnelle.Shared.Dtos
+@inherits Documentsbase
+
+@if (Documents == null)
+{
+    <DisplaySpinner/>
+}
+else
+{
+    <h3 class="mb-5"> Documents</h3>
+
+    var documentCount = Documents.Count();
+    @if (documentCount > 0)
+    {
+        @foreach (var docGrouped in GetGroupedDocumentsByCategory())
+        {
+            <h4>@GetCategoryName(docGrouped)</h4>
+            <div class="row mt-3">
+                <DisplayDocuments Documents="@docGrouped"></DisplayDocuments>
+            </div>
+            <hr class="mb-3" />
+        }
+
+    }
+}

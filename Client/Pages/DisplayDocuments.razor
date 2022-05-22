@@ -1,0 +1,23 @@
+﻿@inherits DisplayDocumentsBase
+
+@foreach (var item in Documents)
+{
+    <div class="col-md-3 mb-2">
+        <a href="/product-details/@item.Id">
+            <div class="card">
+                <img class="img-thumbnail" src="@item.Chemin">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        @item.Libelle
+                    </h5>
+                    <p class="card-text">
+                        @foreach (var tag in @item.Tags)
+                        {
+                            <span class="badge badge-custom" style="background-color: @tag.Couleur">@tag.Libelle</span>
+                        }
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+}
