@@ -1,9 +1,11 @@
 ﻿using InformationPersonnelle.Server.Entities;
+using InformationPersonnelle.Server.Entities.User;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace InformationPersonnelle.Server.Data
 {
-    public class InformationPersonnelleDbContext : DbContext
+    public class InformationPersonnelleDbContext : IdentityDbContext<ApplicationUser>
     {
         private readonly IConfiguration configuration;
 
