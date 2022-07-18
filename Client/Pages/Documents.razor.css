@@ -1,0 +1,26 @@
+﻿
+.container-folder {
+    display: flex;
+    flex-direction: row;
+}
+
+.folder-file {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 10px;
+}
+
+.parent-folder {
+    margin-top: 25px;
+}
+
+.retour {
+    width: 40px;
+}
+
+.a.folder-file {
+    text-decoration: none;
+}

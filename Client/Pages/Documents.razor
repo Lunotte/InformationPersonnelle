@@ -2,7 +2,7 @@
 @using InformationPersonnelle.Shared.Dtos
 @inherits Documentsbase
 
-@if (Documents == null)
+@if (Categories == null)
 {
     <DisplaySpinner/>
 }
@@ -10,17 +10,34 @@ else
 {
     <h3 class="mb-5"> Documents</h3>
 
-    var documentCount = Documents.Count();
-    @if (documentCount > 0)
-    {
-        @foreach (var docGrouped in GetGroupedDocumentsByCategory())
+    <div class="container-folder">
+
+        @foreach (var categorie in CategoriesPourAfficher)
         {
-            <h4>@GetCategoryName(docGrouped)</h4>
-            <div class="row mt-3">
-                <DisplayDocuments Documents="@docGrouped"></DisplayDocuments>
+            <div class="folder-file" @onclick="@(() => ouvrirDossier(categorie))">
+                <img src="divers/dossier.svg" />
+                <span>@categorie.Libelle</span>
             </div>
-            <hr class="mb-3" />
         }
 
-    }
+        @if (DocumentsPourAfficher.Count > 0)
+        {
+            @foreach (var document in DocumentsPourAfficher)
+            {
+                <a class="folder-file" href="@document.Chemin" target="_blank">
+                    <img src="divers/fichier.svg" />
+                    <span>@document.Libelle</span>
+                </a>
+            }
+        } 
+        @if(CategoriesPourAfficher.Count() == 0 && DocumentsPourAfficher.Count == 0)
+        {
+            <p>Aucun document disponible</p>
+        }
+
+    </div>
+
+    <img class="parent-folder retour" src="divers/home.svg" @onclick=retourRacine/>
+    <img class="parent-folder retour" src="divers/back.svg" @onclick=retourParent/>
+        
 }

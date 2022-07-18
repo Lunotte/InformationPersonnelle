@@ -35,10 +35,19 @@ namespace InformationPersonnelle.Server.Data
             context.Tags.AddRange(new List<Tag>() { tag1, tag2, tag3 });
             context.SaveChanges();
 
-            var categorie1 = new Categorie { Libelle = "Bulletin de salaire" };
+            var categorie1 = new Categorie { Libelle = "Bulletin de salaire", ParentCategorie = null };
             context.Categories.Add(categorie1);
 
-            var categorie2 = new Categorie { Libelle = "Apef" };
+            var categorie11 = new Categorie { Libelle = "Capgemini", ParentCategorie = categorie1 };
+            context.Categories.Add(categorie11);
+            var categorie111 = new Categorie { Libelle = "Charly", ParentCategorie = categorie11 };
+            context.Categories.Add(categorie111);
+            var categorie112 = new Categorie { Libelle = "Valeria", ParentCategorie = categorie11 };
+            context.Categories.Add(categorie112);
+            var categorie12 = new Categorie { Libelle = "Axians", ParentCategorie = categorie1 };
+            context.Categories.Add(categorie12);
+
+            var categorie2 = new Categorie { Libelle = "Apef", ParentCategorie = null };
             context.Categories.Add(categorie2);
 
             context.SaveChanges();
@@ -48,7 +57,7 @@ namespace InformationPersonnelle.Server.Data
                 Libelle = "Salaire 01/2022",
                 Description = null,
                 Chemin = "/test/salaires/salaire_01-2022.png",
-                Categorie = categorie1,
+                Categorie = categorie111,
             };
             context.Documents.Add(document1);
 
@@ -57,7 +66,7 @@ namespace InformationPersonnelle.Server.Data
                 Libelle = "Salaire 02/2022",
                 Description = null,
                 Chemin = "/test/salaires/salaire_02-2022.png",
-                Categorie = categorie1,
+                Categorie = categorie112,
             };
             context.Documents.Add(document2);
 

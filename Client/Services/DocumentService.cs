@@ -32,11 +32,11 @@ namespace InformationPersonnelle.Client.Services
             
         }
 
-        public async Task<IEnumerable<DocumentDto>> GetDocuments()
+        public async Task<HashSet<CategorieVue>> GetDocuments()
         {
             try
             {
-                return await this.httpClient.GetFromJsonAsync<IEnumerable<DocumentDto>>("api/Document");
+                return await this.httpClient.GetFromJsonAsync<HashSet<CategorieVue>>("api/Document");
             }
             catch (Exception ess)
             {

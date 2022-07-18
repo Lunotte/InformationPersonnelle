@@ -12,6 +12,10 @@ public static class ModelBuilderExtensions
 
         modelBuilder.Entity<Categorie>().ToTable("Categories");
         modelBuilder.Entity<Categorie>().Property(c => c.Libelle).HasMaxLength(255);
+        modelBuilder.Entity<Categorie>()
+            .Property(c => c.ParentCategorieId)
+            .IsRequired(false);
+            
         modelBuilder.Entity<Categorie>().HasIndex(categorie => categorie.Libelle).IsUnique();
 
         modelBuilder.Entity<Document>().ToTable("Documents").HasOne(d => d.Categorie);

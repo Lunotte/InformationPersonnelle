@@ -12,9 +12,8 @@ namespace InformationPersonnelle.Shared.Dtos
         public string Libelle { get; set; }
         public string? Description { get; set; }
         public string Chemin { get; set; }
-        public int CategorieId { get; set; }
-        public string CategorieLibelle { get; set; }
         public IEnumerable<TagDto> Tags { get; set; }
 
     }
+
 }

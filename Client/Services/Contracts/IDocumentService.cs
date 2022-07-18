@@ -4,7 +4,7 @@ namespace InformationPersonnelle.Client.Services.Contracts
 {
     public interface IDocumentService
     {
-        Task<IEnumerable<DocumentDto>> GetDocuments();
+        Task<HashSet<CategorieVue>> GetDocuments();
         Task<DocumentDto> GetDocument(int documentId);
     }
 }

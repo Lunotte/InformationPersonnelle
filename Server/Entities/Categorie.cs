@@ -10,5 +10,8 @@ namespace InformationPersonnelle.Server.Entities
     {
         public int Id { get; set; }
         public string Libelle { get; set; }
+        public int Niveau { get; set; }
+        public int? ParentCategorieId { get; set; }
+        public virtual Categorie ParentCategorie { get; set; }
     }
 }

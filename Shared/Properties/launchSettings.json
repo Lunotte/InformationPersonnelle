@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "InformationPersonnelle.Shared": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
